@@ -1,0 +1,26 @@
+﻿@model CRUD.Models.Tbl_cauthu
+
+<h2>Chi Tiết Cầu Thủ</h2>
+
+<div>
+    <h4>@Model.Ten_ct</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Mã Cầu Thủ</dt>
+        <dd class="col-sm-10">@Model.Ma_ct</dd>
+
+        <dt class="col-sm-2">Tên Cầu Thủ</dt>
+        <dd class="col-sm-10">@Model.Ten_ct</dd>
+
+        <dt class="col-sm-2">Ngày Sinh</dt>
+        <dd class="col-sm-10">@Model.NgaySinh.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Quê Quán</dt>
+        <dd class="col-sm-10">@Model.Que_quan</dd>
+
+        <dt class="col-sm-2">Câu Lạc Bộ</dt>
+        <dd class="col-sm-10">@ClubRepository.GetClubById(Model.Ma_clb)?.Ten_clb</dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Trở Về Danh Sách</a>

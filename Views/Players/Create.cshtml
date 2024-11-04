@@ -1,0 +1,31 @@
+﻿@model CRUD.Models.Tbl_cauthu
+@{
+    ViewBag.Title = "Thêm Cầu Thủ Mới";
+}
+
+<h2>Thêm Cầu Thủ Mới</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Tên Cầu Thủ</label>
+        <input asp-for="Ten_ct" class="form-control" />
+        <span asp-validation-for="Ten_ct" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Ngày Sinh</label>
+        <input asp-for="NgaySinh" type="date" class="form-control" />
+        <span asp-validation-for="NgaySinh" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Quê Quán</label>
+        <input asp-for="Que_quan" class="form-control" />
+        <span asp-validation-for="Que_quan" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Câu Lạc Bộ</label>
+        <select asp-for="Ma_clb" class="form-control" asp-items="@(new SelectList(ViewBag.Clubs, "Ma_clb", "Ten_clb"))"></select>
+        <span asp-validation-for="Ma_clb" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

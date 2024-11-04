@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CRUD.Models.Tbl_cauthu>
+
+<h2>Danh Sách Cầu Thủ</h2>
+
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <label for="searchString">Tìm Kiếm Cầu Thủ:</label>
+        <input type="text" id="searchString" name="searchString" value="@ViewBag.SearchString" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Tìm Kiếm</button>
+</form>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Mã Cầu Thủ</th>
+            <th>Tên Cầu Thủ</th>
+            <th>Ngày Sinh</th>
+            <th>Quê Quán</th>
+            <th>Câu Lạc Bộ</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model)
+        {
+            <tr>
+                <td>@player.Ma_ct</td>
+                <td>@player.Ten_ct</td>
+                <td>@player.NgaySinh.ToString("dd/MM/yyyy")</td>
+                <td>@player.Que_quan</td>
+                <td>@ClubRepository.GetClubById(player.Ma_clb)?.Ten_clb</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@player.Ma_ct">Chi Tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@player.Ma_ct">Chỉnh Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@player.Ma_ct">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Thêm Cầu Thủ Mới</a>

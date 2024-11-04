@@ -1,0 +1,17 @@
+﻿@model CRUD.Models.Tbl_clb
+
+<h2>Chi Tiết Câu Lạc Bộ</h2>
+
+<div>
+    <h4>@Model.Ten_clb</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Mã Câu Lạc Bộ</dt>
+        <dd class="col-sm-10">@Model.Ma_clb</dd>
+
+        <dt class="col-sm-2">Tên Câu Lạc Bộ</dt>
+        <dd class="col-sm-10">@Model.Ten_clb</dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Trở Về Danh Sách</a>

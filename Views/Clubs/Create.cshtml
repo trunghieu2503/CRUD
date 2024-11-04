@@ -1,0 +1,13 @@
+﻿@model CRUD.Models.Tbl_clb
+
+<h2>Thêm Câu Lạc Bộ Mới</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Tên Câu Lạc Bộ</label>
+        <input asp-for="Ten_clb" class="form-control" />
+        <span asp-validation-for="Ten_clb" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

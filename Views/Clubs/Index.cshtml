@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CRUD.Models.Tbl_clb>
+
+<h2>Danh Sách Câu Lạc Bộ</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã Câu Lạc Bộ</th>
+            <th>Tên Câu Lạc Bộ</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var club in Model)
+        {
+            <tr>
+                <td>@club.Ma_clb</td>
+                <td>@club.Ten_clb</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@club.Ma_clb">Chi Tiết</a> |
+                    <a asp-action="Edit" asp-route-id="@club.Ma_clb">Chỉnh Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@club.Ma_clb">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Thêm Câu Lạc Bộ Mới</a>

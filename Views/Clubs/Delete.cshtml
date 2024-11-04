@@ -1,0 +1,11 @@
+﻿@model CRUD.Models.Tbl_clb
+
+<h2>Xóa Câu Lạc Bộ</h2>
+
+<p>Bạn có chắc chắn muốn xóa câu lạc bộ <strong>@Model.Ten_clb</strong> không?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Ma_clb" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>
